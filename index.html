@@ -53,9 +53,50 @@
     }
     .section-label {
       font-size: 11px; color: #B5917A; letter-spacing: 1px;
-      text-transform: uppercase; margin-bottom: 1rem;
-      font-weight: 500;
+      text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;
     }
+
+    /* GALERIA */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 1.8rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-item:active img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(42,18,6,0.72));
+      padding: 28px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .gallery-label {
+      font-size: 13px; font-weight: 500; color: #fff;
+    }
+    .gallery-sub {
+      font-size: 10px; color: rgba(255,255,255,0.75);
+    }
+
+    /* BOTÕES */
     .btn {
       display: flex; align-items: center; gap: 14px;
       width: 100%; max-width: 360px;
@@ -68,23 +109,18 @@
     .btn-icon {
       width: 40px; height: 40px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 20px;
+      flex-shrink: 0;
     }
     .btn-text { flex: 1; }
     .btn-label { font-size: 13px; font-weight: 500; display: block; }
     .btn-sub { font-size: 11px; font-weight: 300; display: block; margin-top: 1px; }
     .btn-arrow { font-size: 16px; opacity: 0.35; }
- 
-    .btn-cat { border-color: #EDD9C8; }
-    .btn-cat .btn-icon { background: #FAF0E6; }
-    .btn-cat .btn-label { color: #6B3A22; }
-    .btn-cat .btn-sub { color: #B5917A; }
- 
+
     .btn-ig { border-color: #F8D7E3; }
     .btn-ig .btn-icon { background: #FDE8F0; }
     .btn-ig .btn-label { color: #AD1457; }
     .btn-ig .btn-sub { color: #F48FB1; }
- 
+
     .footer {
       margin-top: 2.5rem; font-size: 11px; color: #C5A899;
       text-align: center; letter-spacing: 0.5px;
@@ -92,62 +128,57 @@
   </style>
 </head>
 <body>
- 
-  <div class="avatar">MA</div>
+
+  <img src="perfil.jpg" alt="Milena Miranda" style="width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:1rem;border:3px solid #fff;box-shadow:0 2px 12px rgba(180,110,80,0.18);">
   <h1>Milenarts Ateliê</h1>
   <p class="tagline">Artesanato feito à mão com amor</p>
   <p class="location">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B5917A" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
     Barra do Corda, MA
   </p>
- 
+
   <div class="tags">
     <span class="tag">Artesanato em feltro</span>
     <span class="tag">Presentes</span>
     <span class="tag">Decoração</span>
   </div>
- 
+
   <div class="divider"></div>
-  <p class="section-label">Quero encomendar</p>
- 
-  <a class="btn btn-cat" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nas%20guirlandas!%20Pode%20me%20ajudar%3F">
-    <div class="btn-icon">🎄</div>
-    <div class="btn-text">
-      <span class="btn-label">Guirlandas</span>
-      <span class="btn-sub">Decoração para qualquer ocasião</span>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
- 
-  <a class="btn btn-cat" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20pesos%20de%20porta!%20Pode%20me%20ajudar%3F">
-    <div class="btn-icon">🚪</div>
-    <div class="btn-text">
-      <span class="btn-label">Pesos de porta</span>
-      <span class="btn-sub">Charme e funcionalidade</span>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
- 
-  <a class="btn btn-cat" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20chaveiros!%20Pode%20me%20ajudar%3F">
-    <div class="btn-icon">🔑</div>
-    <div class="btn-text">
-      <span class="btn-label">Chaveiros</span>
-      <span class="btn-sub">Presentes criativos e personalizados</span>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
- 
-  <a class="btn btn-cat" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20%C3%ADm%C3%A3s%20de%20geladeira!%20Pode%20me%20ajudar%3F">
-    <div class="btn-icon">🧲</div>
-    <div class="btn-text">
-      <span class="btn-label">Ímãs de geladeira</span>
-      <span class="btn-sub">Novidade! Fofinhos e coloridos</span>
-    </div>
-    <span class="btn-arrow">›</span>
-  </a>
- 
-  <div class="divider" style="margin-top: 1.2rem;"></div>
- 
+  <p class="section-label">Nossos produtos</p>
+
+  <div class="gallery">
+    <a class="gallery-item" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nas%20guirlandas!%20Pode%20me%20ajudar%3F">
+      <img src="guirlanda.jpg" alt="Guirlandas">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Guirlandas</span>
+        <span class="gallery-sub">Toque para encomendar</span>
+      </div>
+    </a>
+    <a class="gallery-item" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20pesos%20de%20porta!%20Pode%20me%20ajudar%3F">
+      <img src="peso-porta.jpg" alt="Pesos de porta">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Pesos de porta</span>
+        <span class="gallery-sub">Toque para encomendar</span>
+      </div>
+    </a>
+    <a class="gallery-item" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20chaveiros!%20Pode%20me%20ajudar%3F">
+      <img src="chaveiro.jpg" alt="Chaveiros">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Chaveiros</span>
+        <span class="gallery-sub">Toque para encomendar</span>
+      </div>
+    </a>
+    <a class="gallery-item" href="https://wa.me/5599981544996?text=Oi%2C%20vim%20pelo%20Instagram%20e%20tenho%20interesse%20nos%20%C3%ADm%C3%A3s%20de%20geladeira!%20Pode%20me%20ajudar%3F">
+      <img src="imas.jpg" alt="Ímãs de geladeira">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Ímãs de geladeira</span>
+        <span class="gallery-sub">Toque para encomendar</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
   <a class="btn btn-ig" href="https://www.instagram.com/milenartsatelie/">
     <div class="btn-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AD1457" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -158,8 +189,8 @@
     </div>
     <span class="btn-arrow">›</span>
   </a>
- 
+
   <p class="footer">Artesanato com afeto · feito à mão ✦</p>
- 
+
 </body>
 </html>
